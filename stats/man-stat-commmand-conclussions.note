@@ -1,0 +1,110 @@
+
+ **** 
+When a file is opened for reading its dates(access, modify,change) are NOT updated,
+only parent folder is updated in modify and change dates.
+
+When a file is changed (writing) its dates access, modify,change are updated
+and parent folder Modify and Change dates are updated .
+updates not propagate to second higher level .
+
+
+
+######################    reding
+#stat B-level1
+Access: 2013-08-15 13:18:00.643121543 -0500
+Modify: 2013-08-15 13:17:52.603121519 -0500
+Change: 2013-08-15 13:17:52.603121519 -0500
+
+#stat B-level1/a-b-level2 
+Access: 2013-08-15 13:18:00.731121543 -0500
+Modify: 2013-08-15 13:17:51.847121517 -0500
+Change: 2013-08-15 13:17:51.847121517 -0500
+
+
+#vim  B-level1/a-b-level2 (close without edit)
+
+
+#stat B-level1
+Access: 2013-08-15 13:18:00.643121543 -0500
+Modify: 2013-08-15 17:41:57.455948935 -0500
+Change: 2013-08-15 17:41:57.455948935 -0500
+
+#stat B-level1/a-b-level2 
+Access: 2013-08-15 13:18:00.731121543 -0500
+Modify: 2013-08-15 13:17:51.847121517 -0500
+Change: 2013-08-15 13:17:51.847121517 -0500
+
+######################    writing
+
+#vim  B-level1/a-b-level2 (editing)
+
+#stat B-level1
+Access: (0775/drwxrwxr-x)  Uid: ( 1000/sajidaustria)   Gid: ( 1000/sajidaustria)
+Access: 2013-08-15 13:18:00.643121543 -0500
+Modify: 2013-08-15 17:50:19.559950426 -0500
+Change: 2013-08-15 17:50:19.559950426 -0500
+
+stat B-level1/a-b-level2 
+Access: 2013-08-15 17:50:19.483950425 -0500
+Modify: 2013-08-15 17:50:19.483950425 -0500
+Change: 2013-08-15 17:50:19.559950426 -0500
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
+
+stat B-level1
+Access: 2013-08-15 17:57:03.623951625 -0500
+Modify: 2013-08-15 17:50:19.559950426 -0500
+Change: 2013-08-15 17:50:19.559950426 -0500
+
+stat B-level1/C-B-level2
+Access: 2013-08-15 13:22:35.331122359 -0500
+Modify: 2013-08-15 13:22:20.211122314 -0500
+Change: 2013-08-15 13:22:20.211122314 -0500
+ 
+stat B-level1/C-B-level2/d-c-b-level3 
+Access: 2013-08-15 13:24:15.251122655 -0500
+Modify: 2013-08-15 13:20:55.051122061 -0500
+Change: 2013-08-15 13:22:20.211122314 -0500
+ 
+#### write
+
+stat B-level1
+Access: 2013-08-15 17:57:03.623951625 -0500
+Modify: 2013-08-15 17:50:19.559950426 -0500
+Change: 2013-08-15 17:50:19.559950426 -0500
+
+stat B-level1/C-B-level2
+Access: 2013-08-15 13:22:35.331122359 -0500
+Modify: 2013-08-15 19:06:52.695964064 -0500
+Change: 2013-08-15 19:06:52.695964064 -0500
+
+stat B-level1/C-B-level2/d-c-b-level3 
+Access: 2013-08-15 19:06:52.651964064 -0500
+Modify: 2013-08-15 19:06:52.655964064 -0500
+Change: 2013-08-15 19:06:52.695964064 -0500
+
+
+##### reding
+
+
+stat B-level1
+  
+Access: 2013-08-15 17:57:03.623951625 -0500
+Modify: 2013-08-15 17:50:19.559950426 -0500
+Change: 2013-08-15 17:50:19.559950426 -0500
+
+stat B-level1/C-B-level2
+
+Access: 2013-08-15 13:22:35.331122359 -0500
+Modify: 2013-08-15 19:15:31.123965604 -0500
+Change: 2013-08-15 19:15:31.123965604 -0500
+
+stat B-level1/C-B-level2/d-c-b-level3 
+ 
+Access: 2013-08-15 19:15:27.819965594 -0500
+Modify: 2013-08-15 19:06:52.655964064 -0500
+Change: 2013-08-15 19:06:52.695964064 -0500
+
+
