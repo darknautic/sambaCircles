@@ -1,0 +1,25 @@
+.inactive{
+	border : 0px;
+	background-color: #FF4719;	
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	color : white ;
+	/*display:inline-block;*/
+	/*vertical-align:middle;*/
+	display:table-cell; vertical-align:middle;
+	/*vertical-align:text-bottom;*/
+	}
+
+
+.active{
+	background-color: #007A00;	
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	color : white ;
+	}	
+
+
+
+
