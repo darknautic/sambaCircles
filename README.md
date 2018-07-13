@@ -2,7 +2,7 @@
 ===============================
 
 This project  intents to be  useful way to handle samba shared 
-storage units (CIFS) and ldad groups and users who are allowed 
+storage units (CIFS) and ldap groups and users who are allowed 
 to write or read in this file shares.It includes web interface 
 , command utility  and file stats library.
 
